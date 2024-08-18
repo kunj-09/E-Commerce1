@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
 import AdminMenu from "./../../components/Layout/AdminMenu";
-import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +26,7 @@ const CreateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      
     }
   };
 
@@ -51,14 +50,12 @@ const CreateProduct = () => {
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
+        console.log(data?.message)
       } else {
-        toast.success("Product Created Successfully");
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
     }
   };
 

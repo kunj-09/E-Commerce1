@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../../components/Layout/Layout";
 import AdminMenu from "./../../components/Layout/AdminMenu";
-import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
@@ -51,7 +50,7 @@ const UpdateProduct = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      
     }
   };
 
@@ -75,14 +74,15 @@ const UpdateProduct = () => {
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
+
+        console.log(data?.message)
       } else {
-        toast.success("Product Updated Successfully");
+      
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
       console.log(error);
-      toast.error("something went wrong");
+      
     }
   };
 
@@ -94,11 +94,11 @@ const UpdateProduct = () => {
       const { data } = await axios.delete(
         `${process.env.REACT_APP_API}/api/v1/products/delete-product/${id}`
       );
-      toast.success("Product DEleted Succfully");
+      
       navigate("/dashboard/admin/products");
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      
     }
   };
   return (

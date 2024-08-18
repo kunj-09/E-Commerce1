@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink,Link} from 'react-router-dom'
 // import { GiShoppingBag } from "react-icons/gi";
 import { useAuth } from '../../context/auth'
-import toast from 'react-hot-toast'
+
 import SearchInput from '../Form/SearchInput'
 import useCategory from '../../hooks/useCategory'
 import { useCart } from '../../context/cart'
@@ -19,7 +19,7 @@ const Header = () => {
       token:null
     })
     localStorage.removeItem('auth')
-    toast.success('Logout Successfully')
+    
   }
   return (
       <>

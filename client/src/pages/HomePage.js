@@ -5,7 +5,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
-import toast from "react-hot-toast";
+
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -164,7 +164,7 @@ const HomePage = () => {
                   <button className="btn btn-secondary ms-1" onClick={()=>{
                     setCart([...cart,p])
                     localStorage.setItem('cart',JSON.stringify([...cart, p]))
-                    toast.success("Item Added To Cart")
+                    
                   }}>ADD TO CART</button>
                 </div>
               </div>

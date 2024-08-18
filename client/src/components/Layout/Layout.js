@@ -2,11 +2,11 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
-// import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { Toaster } from 'sonner';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastProvider } from "react-toast-notifications";
+// import { ToastProvider } from "react-toast-notifications";
 
 const Layout = ({ children, title, description, keywords, author }) => {
   return (
@@ -23,8 +23,8 @@ const Layout = ({ children, title, description, keywords, author }) => {
       <Header />
       <main style={{ minHeight: "70vh" }}>
         <Toaster />
-        {/* <ToastContainer /> */}
-        <ToastProvider></ToastProvider>
+        <ToastContainer />
+        {/* <ToastProvider></ToastProvider> */}
         {children}
       </main>
       <Footer />

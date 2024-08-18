@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import UserMenu from "../../components/Layout/UserMenu";
 import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
-import toast from "react-hot-toast";
 import axios from "axios";
 const Profile = () => {
   //context
@@ -35,18 +34,18 @@ const Profile = () => {
         address,
       });
       if (data?.errro) {
-        toast.error(data?.error);
+        console.log(data?.error)
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
         let ls = localStorage.getItem("auth");
         ls = JSON.parse(ls);
         ls.user = data.updatedUser;
         localStorage.setItem("auth", JSON.stringify(ls));
-        toast.success("Profile Updated Successfully");
+        
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      
     }
   };
   return (

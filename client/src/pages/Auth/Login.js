@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
-import toast from "react-hot-toast";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
 
@@ -23,7 +22,8 @@ const Login = () => {
         password,
       });
       if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+        
+        console.log(res.data && res.data.message)
         setAuth({
           ...auth,
           user:res.data.user,
@@ -32,11 +32,12 @@ const Login = () => {
         localStorage.setItem("auth",JSON.stringify(res.data));
         navigate(location.state || "/");       // yeh location wala se ager user dashboard pe tha or user ne logout kiya hai -- toh jab woh vapas login karega tabhi dashboard pe hi jana chaioye isliye yeh use hota ha samjo 
       } else {
-        toast.error(res.data.message);
+       
+        console.log(res.data.message)
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+     
     }
   };
   return (

@@ -6,7 +6,7 @@ import { useAuth } from "../context/auth";
 import { useCart } from "../context/cart";
 import DropIn from "braintree-web-drop-in-react";
 import axios from 'axios';
-import toast from "react-hot-toast";
+
 const CartPage = () => {
   const navigate = useNavigate();
   const [auth, setAuth] = useAuth();
@@ -68,7 +68,7 @@ const handlePayment = async() => {
       localStorage.removeItem('cart')
       setCart([])
       navigate('/dashboard/user/orders')
-      toast.success('Payment Completed  Sucessfully ') 
+      
   } catch (error) {
     console.log(error)
     setLoadig(false)
