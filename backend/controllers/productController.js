@@ -2,7 +2,7 @@ import slugify from "slugify"
 import productModel from "../models/productModel.js"
 import categoryModel from '../models/categoryModel.js'
 import fs from 'fs'      // yeh file system hai
-import { send } from "process"
+
 import braintree from "braintree"
 import orderModel from "../models/orderModel.js"
 import dotenv from'dotenv';
