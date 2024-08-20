@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
   const getProduct = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/products/get-product/${params.slug}`);
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/products/get-product/${params.slug}`);
       setProduct(data?.product);
       getSimilarProduct(data?.product._id,data?.product.category._id);
     } catch (error) {
@@ -27,7 +27,7 @@ const ProductDetails = () => {
   //get similar product
   const getSimilarProduct = async(pid,cid)=>{
     try {
-      const {data} = await axios.get(`/api/v1/products/related-product/${pid}/${cid}`)
+      const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/products/related-product/${pid}/${cid}`)
       setRelatedProducts(data?.products)
     } catch (error) {
       console.log(error)
