@@ -98,7 +98,7 @@ const HomePage = () => {
   //get filtered products
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/products/product-filters`, {
         checked,
         radio,
       });
